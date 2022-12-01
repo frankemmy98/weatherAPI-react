@@ -1,22 +1,56 @@
 import React from "react";
 
-function SingleWeather() {
+function SingleWeather(weatherData) {
+  const temp = weatherData.main.temp;
+  const weatherDescription = weatherData.weather[0].description;
+  const weatherMain = weatherData.weather[0].main;
+  const icon = weatherData.weather[0].icon;
+  const imageUrl = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
+  const cityName = weatherData.name;
+
   return (
-    <article className="card">
-      <header className="location">London</header>
-      <div className="info">
-        <p className="temp">50^F</p>
-        <p className="desc">
-          In a curious work, published in Paris in 1863 by Delaville Dedreux,
-          there is a suggestion for reaching the North Pole by an aerostat.
-        </p>
+    <>
+      <div className="images-container">
+        <div className="image-box">
+          <div className="bcg">
+            <h2>{temp}℃</h2>
+            <h2>{weatherMain}</h2>
+            <img src={imageUrl} alt="" />
+            <h1 className="city">{cityName}</h1>
+          </div>
+          <div className="content">
+            <p className="title">{weatherDescription}</p>
+            <h4 className="temp">{temp}℃</h4>
+          </div>
+        </div>
+
+        <div className="image-box">
+          <div className="bcg">
+            <h2>{temp}℃</h2>
+            <h2>Clouds</h2>
+            <img src={imageUrl} alt="" />
+            <h1 className="city">{cityName}</h1>
+          </div>
+          <div className="content">
+            <p className="title">{weatherDescription}</p>
+            <h4 className="temp">{temp}℃</h4>
+          </div>
+        </div>
+
+        <div className="image-box">
+          <div className="bcg">
+            <h2>{temp}℃</h2>
+            <h2>Clouds</h2>
+            <img src={imageUrl} alt="" />
+            <h1 className="city">{cityName}</h1>
+          </div>
+          <div className="content">
+            <p className="title">scattered clouds</p>
+            <h4 className="temp">{temp}℃</h4>
+          </div>
+        </div>
       </div>
-      <footer>
-        <p className="feels">65^F</p>
-        <p className="humidity">20%</p>
-        <p className="wind">12 MPH</p>
-      </footer>
-    </article>
+    </>
   );
 }
 
