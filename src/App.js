@@ -8,7 +8,7 @@ function App() {
   const [weatherData, setWeatherData] = useState([]);
   const [loading, setLoading] = useState(true);
   const apiKey = "b050e26e45ce8af5a771a653e6d23ec8"; // Authentication
-  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=lagos&appid=${apiKey}`;
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=lagos&units=metric&appid=${apiKey}`;
 
   const getWeatherData = useCallback(async () => {
     try {
